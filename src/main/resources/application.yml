@@ -1,0 +1,40 @@
+# port 결정 = default 8080 = 9090
+server:
+  port: 9090
+  servlet:
+    context-path: /
+spring:
+  #mvc = 파일 업로드
+  datasource:
+    url: jdbc:postgresql://localhost:5433/recipe
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:templates/
+    suffix: .html
+    mode: HTML
+  ai:
+    google:
+      genai:
+        embedding:
+          api-key: ${GEN_KEY}
+          project-id: gen-lang-client-0827057715s
+          text:
+            model: gemini-embedding-001
+            dimensions: 768
+    model:
+      embedding:
+        text: google-genai
+      
+
+# mybatis
+mybatis:
+  type-aliases-package: com.sist.web.vo
+  mapper-locations:
+    - classpath:/mapper/postgres/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  
