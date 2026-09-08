@@ -87,7 +87,7 @@ pipeline {
 		
 		// DockerHub Login
 		stage('DockerHub Login') {
-			staps {
+			steps {
 				withCredentials([usernamePassword(
 					credentialsId:'dockerhub_info',
 					usernameVariable:'DH_USER',
@@ -125,7 +125,7 @@ pipeline {
 		}
 		
 		stage('DockerHub Pull') {
-			staps {
+			steps {
 				sh '''
 					docker pull alpenglow93/ai-app:latest
 					'''
