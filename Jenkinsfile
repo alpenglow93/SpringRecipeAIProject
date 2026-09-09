@@ -28,7 +28,7 @@ pipeline {
 	
 	// 변수 설정
 	environment {
-		APP_DIR = "~/app",
+		APP_DIR = "~/app"
 		JAR_NAME = "SpringRecipeAIProject-0.0.1-SNAPSHOT.jar"
 		DOCKER_IMAGE = "alpenglow93/ai-app:latest"
 	}
