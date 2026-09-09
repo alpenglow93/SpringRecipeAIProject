@@ -53,11 +53,11 @@ pipeline {
 			steps {
 				withCredentials([
 					string(
-						credentialsId:'POST_URL'
+						credentialsId:'POST_URL',
 						variable: 'POST_URL'
 					),
 					string(
-						credentialsId:'GEN_KEY'
+						credentialsId:'GEN_KEY',
 						variable: 'GEN_KEY'
 					)
 				]) {
