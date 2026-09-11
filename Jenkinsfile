@@ -43,7 +43,7 @@ pipeline {
 			= git-url
 			= Jenkinsfile 인식
 	*/
-	stages {
+
 		// 1. Git Checkout : Repository 확인
 		stage("Repository Checkout") {
 			steps {
