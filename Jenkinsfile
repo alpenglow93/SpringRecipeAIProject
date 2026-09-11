@@ -193,7 +193,7 @@ pipeline {
 					sh '''
 						ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no ubuntu@43.203.132.39 "mkdir -p /home/ubuntu/app"
 						
-						scp -i "$SSH_KEY" -o StrictHostKeyChecking=no ubuntu@43.203.132.39 docker-compose.yml ubuntu@43.203.132.39:/home/ubuntu/app/docker-compose.yml
+						scp -i "$SSH_KEY" -o StrictHostKeyChecking=no docker-compose.yml ubuntu@43.203.132.39:/home/ubuntu/app/docker-compose.yml
 						'''
 				}
 			}
