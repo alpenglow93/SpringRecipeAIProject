@@ -28,7 +28,6 @@ pipeline {
 	
 	// 변수 설정
 	environment {
-		APP_DIR = "~/app"
 		JAR_NAME = "SpringRecipeAIProject-0.0.1-SNAPSHOT.jar"
 		DOCKER_IMAGE = "alpenglow93/ai-app:latest"
 		// AWS EC2
@@ -43,7 +42,7 @@ pipeline {
 			= git-url
 			= Jenkinsfile 인식
 	*/
-
+	stages {
 		// 1. Git Checkout : Repository 확인
 		stage("Repository Checkout") {
 			steps {
@@ -246,4 +245,5 @@ post {
 			docker compose  ps || true
 			'''
 	}
+}
 }
