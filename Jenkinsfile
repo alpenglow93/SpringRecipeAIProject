@@ -167,20 +167,17 @@ pipeline {
 					)
 				]) {
 					sh '''
-						ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no ubuntu@43.203.132.39<<EOF
-						mkdir -p /home/ubuntu/app
+						ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no ubuntu@43.203.132.39
+						"mkdir -p /home/ubuntu/app && \
+						cd /home/ubuntu/app && \
+						rm -f .env && \
 						
-						cd /home/ubuntu/app
+						echo "SPRING_PROFILES_ACTIVE=prod" > .env && \
+						echo "POST_URL=${POST_URL}" >> .env && \
+						echo "GEN_KEY=${GEN_KEY}" >> .env && \
 						
-						rm -f .env
+						chmod 600 .env"
 						
-						echo "SPRING_PROFILES_ACTIVE=prod" > .env
-						echo "POST_URL=${POST_URL}" >> .env
-						echo "GEN_KEY=${GEN_KEY}" >> .env
-						
-						chmod 600 .env
-						
-						EOF
 						'''
 				}
 			}
@@ -227,6 +224,7 @@ pipeline {
 				}
 			}
 		}
+	}
 	
 } // pipeline 종료
 
